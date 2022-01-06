@@ -1,15 +1,17 @@
 name: Main
-on:
-  push:
-    branches:
-      - master     
+
+on: push
+
 jobs:
-  build-all:
-    runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        config: [dongshanpiseven_core_defconfig ] 
+  build:
+    runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: echo ${{ github.sha }} > Release.txt
+      - name: Test
+        run: cat Release.txt
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
@@ -25,4 +27,4 @@ jobs:
             u-boot.stm32
             uImage
             uInitrd
-            
+          
