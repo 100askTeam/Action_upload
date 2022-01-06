@@ -2,7 +2,7 @@ name: Main
 on:
   push:
     branches:
-      - main     
+      - master     
 jobs:
   build-all:
     runs-on: ubuntu-20.04
