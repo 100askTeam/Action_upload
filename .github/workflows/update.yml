@@ -1,0 +1,23 @@
+name: Main
+on:
+  push:
+    branches:
+      - main     
+jobs:
+  build-all:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        config: [dongshanpiseven_core_defconfig ] 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+                
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          body_path: ${{ github.workspace }}-README.md
+          files: |
+            README.md
+            
