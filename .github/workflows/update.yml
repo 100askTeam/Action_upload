@@ -12,16 +12,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
-      - name: Store images
-        uses: actions/upload-artifact@v2
-        with:
-          name: ${{ matrix.config }}
-          path: README.md        
-          
+                
       - name: Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/main/')
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           body_path: ${{ github.workspace }}-README.md
           files: |
