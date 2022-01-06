@@ -17,7 +17,15 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          body_path: ${{ github.workspace }}-README.md
           files: |
             README.md
+            sdcard.img.gz
+            splash.bmp
+            stm32mp157c-100ask-512d-hdmi-v1.dtb
+            stm32mp157c-100ask-512d-lcd-v1.dtb
+            stm32mp157c-100ask-512d-v1.dtb
+            tf-a-stm32mp157c-100ask-512d-v1.stm32
+            u-boot.stm32
+            uImage
+            uInitrd
             
