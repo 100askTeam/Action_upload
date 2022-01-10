@@ -39,5 +39,4 @@ jobs:
           port: 22
           script: |
                 ls  -la
-                cd /root/HomeSite_vuepress/
-                pull
+                cd /root/HomeSite_vuepress/  && git pull
