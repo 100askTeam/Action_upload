@@ -46,5 +46,4 @@ jobs:
           local_path: ./*
           # files will copy to under remote_path
           remote_path: /root/test
-
-    args: # optional
+          args: '-o ConnectTimeout=5'
